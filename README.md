@@ -1,3 +1,7 @@
+##Work in Progress...
+
+Full-stack Bookmark manager web app built in Next.js (React & Typescript), Auth.js and PostgreSQL with Prisma ORM!
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
