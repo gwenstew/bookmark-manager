@@ -1,10 +1,10 @@
 //nextauth config and export here
 import { prisma } from "@/lib/db/prisma";
 import GoogleProvider from "next-auth/providers/google";
-import { type NextAuthConfig } from "next-auth";
+import NextAuth from "next-auth";
 
 
-export const authOptions: NextAuthConfig = {
+export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -77,7 +77,7 @@ export const authOptions: NextAuthConfig = {
        async session({ session }) {
             if (session.user?.email) {
                 const user = await prisma.user.findUnique({
-                    where: ({email: session.user.email}),
+                    where: {email: session.user.email},
                 });
                 if (user) {
                     session.user = {
@@ -96,4 +96,4 @@ export const authOptions: NextAuthConfig = {
     session: {
         strategy: "jwt",
     },
-};
+});
