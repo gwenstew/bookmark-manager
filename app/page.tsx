@@ -4,7 +4,7 @@ import Image from "next/image";
 'use client'
 
 import { useSession, signOut } from "next-auth/react";
-import SignIn from "./auth/signin/page";
+import SignIn from "./(auth)/signin/page";
 import { Session } from "next-auth";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
